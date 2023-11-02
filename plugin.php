@@ -13,6 +13,13 @@ if (!defined('YOURLS_ABSPATH')) {
     die();
 }
 
+// Redirection: http://sho.rt/ABC first converted to http://sho.rt/abc
+yourls_add_filter('get_request', 'jk_ref_param_get_ref');
+function jk_ref_param_get_ref($keyword) {
+    echo $keyword;
+    return $keyword;
+}
+
 /*
 
 Your code goes here.
